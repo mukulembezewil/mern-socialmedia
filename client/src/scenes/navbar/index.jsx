@@ -7,9 +7,8 @@ import {
 	Select,
 	MenuItem,
 	FormControl,
-	useMediaQuery,
 	useTheme,
-	Icon,
+	useMediaQuery,
 } from '@mui/material';
 import {
 	Search,
@@ -27,11 +26,12 @@ import { useNavigate } from 'react-router-dom';
 import FlexBetween from 'components/FlexBetween';
 
 const Navbar = () => {
-	const [isMobilMenuToggled, setIsMobileMenuToggled] = useState(false);
+	const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const user = useSelector((state) => state.user);
 	const isNonMobileScreens = useMediaQuery('(min-width: 1000px)');
+
 	const theme = useTheme();
 	const neutralLight = theme.palette.neutral.light;
 	const dark = theme.palette.neutral.dark;
@@ -42,11 +42,14 @@ const Navbar = () => {
 	const fullName = `${user.firstName} ${user.lastName}`;
 
 	return (
-		<FlexBetween padding="1rem 6% backgroundColor={alt}">
+		<FlexBetween
+			padding="1rem 6%"
+			backgroundColor={alt}
+		>
 			<FlexBetween gap="1.75rem">
 				<Typography
 					fontWeight="bold"
-					fontSize="clamp(1rem, 2rem, 2.25rem"
+					fontSize="clamp(1rem, 2rem, 2.25rem)"
 					color="primary"
 					onClick={() => navigate('/home')}
 					sx={{
@@ -101,7 +104,9 @@ const Navbar = () => {
 									pr: '0.25rem',
 									width: '3rem',
 								},
-								'& .MuiSelect-select:focus': { backgroundColor: neutralLight },
+								'& .MuiSelect-select:focus': {
+									backgroundColor: neutralLight,
+								},
 							}}
 							input={<InputBase />}
 						>
@@ -113,28 +118,30 @@ const Navbar = () => {
 					</FormControl>
 				</FlexBetween>
 			) : (
-				<IconButton onClick={() => setIsMobileMenuToggled(!setIsMobileMenuToggled)}>
+				<IconButton onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
 					<Menu />
 				</IconButton>
 			)}
 
 			{/* MOBILE NAV */}
-			{!isNonMobileScreens && setIsMobileMenuToggled && (
+			{!isNonMobileScreens && isMobileMenuToggled && (
 				<Box
 					position="fixed"
 					right="0"
 					bottom="0"
+					height="100%"
 					zIndex="10"
 					maxWidth="500px"
 					minWidth="300px"
 					backgroundColor={background}
 				>
+					{/* CLOSE ICON */}
 					<Box
 						display="flex"
 						justifyContent="flex-end"
 						p="1rem"
 					>
-						<IconButton onClick={() => setIsMobileMenuToggled(!isMobilMenuToggled)}>
+						<IconButton onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
 							<Close />
 						</IconButton>
 					</Box>
@@ -175,7 +182,9 @@ const Navbar = () => {
 										pr: '0.25rem',
 										width: '3rem',
 									},
-									'& .MuiSelect-select:focus': { backgroundColor: neutralLight },
+									'& .MuiSelect-select:focus': {
+										backgroundColor: neutralLight,
+									},
 								}}
 								input={<InputBase />}
 							>
