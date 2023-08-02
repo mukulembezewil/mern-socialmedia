@@ -59,7 +59,7 @@ const Navbar = () => {
 						},
 					}}
 				>
-					Sociopedia
+					Mukulembeze Socio
 				</Typography>
 				{isNonMobileScreens && (
 					<FlexBetween
