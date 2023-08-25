@@ -17,7 +17,7 @@ const LoginPage = () => {
 					fontSize="32px"
 					color="primary"
 				>
-					Sociopedia
+					Mukulembeze Socio
 				</Typography>
 			</Box>
 
@@ -33,7 +33,7 @@ const LoginPage = () => {
 					variant="h5"
 					sx={{ mb: '1.5rem' }}
 				>
-					Welcome to Wilopedia the Social Media of willing zealots!
+					Welcome to Mukulembeze Socio the Social Media of willing zealots!
 				</Typography>
 				<Form />
 			</Box>
